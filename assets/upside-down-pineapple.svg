@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd54a"/>
+      <stop offset="1" stop-color="#d99a10"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#66bb6a"/>
+      <stop offset="1" stop-color="#2e7d32"/>
+    </linearGradient>
+  </defs>
+  <!-- UPSIDE-DOWN PINEAPPLE: leaves at the bottom, fruit on top -->
+  <!-- leaves (pointing down, splaying outward) -->
+  <g fill="url(#leaf)">
+    <path d="M100 295 C 60 280, 45 250, 58 225 C 80 245, 95 265, 100 295 Z"/>
+    <path d="M100 295 C 140 280, 155 250, 142 225 C 120 245, 105 265, 100 295 Z"/>
+    <path d="M100 295 C 88 260, 88 235, 100 210 C 112 235, 112 260, 100 295 Z"/>
+    <path d="M100 295 C 70 288, 55 268, 50 245 C 78 258, 92 275, 100 295 Z"/>
+    <path d="M100 295 C 130 288, 145 268, 150 245 C 122 258, 108 275, 100 295 Z"/>
+  </g>
+  <!-- fruit body at top -->
+  <ellipse cx="100" cy="140" rx="62" ry="88" fill="url(#body)"/>
+<clipPath id="fruitclip"><ellipse cx="100" cy="140" rx="60" ry="86"/></clipPath>
+  <!-- diamond lattice -->
+  <g stroke="#a86f08" stroke-width="3" fill="none" opacity="0.85" clip-path="url(#fruitclip)">
+    <path d="M40 120 L160 160"/><path d="M40 160 L160 200"/><path d="M40 80 L160 120"/>
+    <path d="M160 120 L40 160"/><path d="M160 160 L40 200"/><path d="M160 80 L40 120"/>
+  </g>
+  <!-- lattice dots -->
+  <g fill="#8a5a06">
+    <circle cx="100" cy="100" r="5"/><circle cx="100" cy="140" r="5"/><circle cx="100" cy="180" r="5"/>
+    <circle cx="70" cy="120" r="5"/><circle cx="130" cy="120" r="5"/>
+    <circle cx="70" cy="160" r="5"/><circle cx="130" cy="160" r="5"/>
+    <circle cx="100" cy="220" r="5"/>
+  </g>
+</svg>

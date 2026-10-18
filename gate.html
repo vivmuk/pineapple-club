@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>🍍 The Pineapple Club — Members Only</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:radial-gradient(ellipse at 50% -20%, #2e7d3222 0%, transparent 60%), #141a14;color:#fdf8ec;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .door{background:#1c241c;border:1px solid #ffffff14;border-radius:22px;padding:44px 36px;max-width:380px;width:100%;text-align:center}
+  .pine{font-size:64px;animation:bob 3.2s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-10px) rotate(4deg)}}
+  h1{font-size:1.5rem;margin:14px 0 6px;background:linear-gradient(90deg,#f5b81e,#ffd76a);-webkit-background-clip:text;background-clip:text;color:transparent}
+  p{color:#a9bfa9;font-size:.95rem;margin-bottom:22px}
+  input{width:100%;padding:14px 16px;border-radius:14px;border:1.5px solid #ffffff22;background:#141a14;color:#fdf8ec;font-size:1.05rem;text-align:center;outline:none}
+  input:focus{border-color:#f5b81e}
+  button{margin-top:14px;width:100%;padding:14px;border:0;border-radius:40px;background:#f5b81e;color:#201a05;font-weight:700;font-size:1rem;cursor:pointer;transition:.25s}
+  button:hover{transform:translateY(-2px);box-shadow:0 8px 24px #f5b81e44}
+  .no{margin-top:12px;color:#e91e63;font-size:.85rem;min-height:1.2em}
+  .shake{animation:shake .4s}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+</style>
+</head>
+<body>
+<div class="door" id="door">
+  <div class="pine">🍍</div>
+  <h1>The Pineapple Club</h1>
+  <p>Members only. What's the password?</p>
+  <input id="pw" type="password" autocomplete="off" placeholder="password">
+  <button onclick="tryIn()">Come on in</button>
+  <div class="no" id="no"></div>
+</div>
+<script>
+  function tryIn(){
+    var v = (document.getElementById('pw').value || '').trim().toLowerCase();
+    if (v === 'aubrey') {
+      document.cookie = 'pcdoor=welcome1; path=/; max-age=2592000; SameSite=Lax';
+      location.href = '/';
+    } else {
+      document.getElementById('no').textContent = 'Nope. Try again.';
+      var d = document.getElementById('door');
+      d.classList.remove('shake'); void d.offsetWidth; d.classList.add('shake');
+    }
+  }
+  document.getElementById('pw').addEventListener('keydown', function(e){ if (e.key === 'Enter') tryIn(); });
+</script>
+</body>
+</html>
